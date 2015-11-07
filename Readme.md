@@ -13,6 +13,15 @@ setInterval(function(){
 }, 5000);
 ```
 
+### With Authentication
+
+```js
+var io = require('socket.io-emitter')({ host: '127.0.0.1', port: 6379, auth_pass: "pass" });
+setInterval(function(){
+  io.emit('time', new Date);
+}, 5000);
+```
+
 ## API
 
 ### Emitter(client[, opts])
@@ -27,6 +36,7 @@ The following options are allowed:
 - `host`: host to connect to redis on (`localhost`)
 - `port`: port to connect to redis on (`6379`)
 - `auth_pass`: password authentication to connect to redis
+- `detect_buffers`: If set to true, then replies will be sent to redis callbacks as Buffers.
 - `socket`: unix domain socket to connect to redis on (`"/tmp/redis.sock"`)
 
 ### Emitter(clientUri[, opts]
@@ -38,7 +48,7 @@ to connect to redis to.
 
 If you don't want to supply a redis client object, and want
 `socket.io-emitter` to intiialize one for you, make sure to supply the
-`host` and `port` options.
+`host` and `port` options. `auth_pass` and `detect_buffers` optional.
 
 ### Emitter#to(room:String):Emitter
 ### Emitter#in(room:String):Emitter
