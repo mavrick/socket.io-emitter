@@ -16,7 +16,16 @@ setInterval(function(){
 ### With Authentication
 
 ```js
-var io = require('socket.io-emitter')({ host: '127.0.0.1', port: 6379, auth_pass: "pass" });
+var io = require('socket.io-emitter')({ host: '127.0.0.1', port: 6379, options: { auth_pass: "pass" } });
+setInterval(function(){
+  io.emit('time', new Date);
+}, 5000);
+```
+
+### Addition Redis Client Options
+
+```js
+var io = require('socket.io-emitter')({ host: '127.0.0.1', port: 6379, options: { return_buffers: true, detect_buffers: true } });
 setInterval(function(){
   io.emit('time', new Date);
 }, 5000);
@@ -35,8 +44,7 @@ The following options are allowed:
 - `key`: the name of the key to pub/sub events on as prefix (`socket.io`)
 - `host`: host to connect to redis on (`localhost`)
 - `port`: port to connect to redis on (`6379`)
-- `auth_pass`: password authentication to connect to redis
-- `detect_buffers`: If set to true, then replies will be sent to redis callbacks as Buffers.
+- `options`: [redis client options](https://github.com/NodeRedis/node_redis#options-is-an-object-with-the-following-possible-properties)
 - `socket`: unix domain socket to connect to redis on (`"/tmp/redis.sock"`)
 
 ### Emitter(clientUri[, opts]

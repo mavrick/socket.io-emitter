@@ -54,12 +54,9 @@ function Emitter(redis, opts){
     
     var options = {};
 
-    if(opts.auth_pass) {
-      options.auth_pass = opts.auth_pass;
-    }
-
-    if(opts.hasOwnProperty('detect_buffers')) {
-      options.detect_buffers = opts.detect_buffers;
+    if(opts && opts.options)
+    {
+      options = opts.options;
     }
 
     redis = opts.socket

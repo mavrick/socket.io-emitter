@@ -2,8 +2,7 @@
 ==================
 
  * package: bump dependencies
- * added auth_pass for redis authenitcation
- * added detect_buffers for redis buffer support
+ * added the ability to pass in redis client options
 
 0.2.0 / 2014-06-07
 ==================
