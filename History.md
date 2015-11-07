@@ -1,3 +1,9 @@
+0.3.0 / 2015-11-7
+==================
+
+ * package: bump dependencies
+ * added auth_pass for redis authenitcation
+ * added detect_buffers for redis buffer support
 
 0.2.0 / 2014-06-07
 ==================
