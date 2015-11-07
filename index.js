@@ -130,11 +130,13 @@ Emitter.prototype.emit = function(){
     packet.nsp = '/';
   }
 
-  // publish
-  this.redis.publish(this.key, msgpack([packet, {
+  var pack = msgpack([packet, {
     rooms: this._rooms,
     flags: this._flags
-  }]));
+  }]);
+
+  // publish
+  this.redis.publish(this.key, pack);
 
   // reset state
   this._rooms = [];
