@@ -9,7 +9,6 @@
   "dependencies": {
     "debug": "2.2.0",
     "redis": "2.3.0",
-    "msgpack5": "3.2.0",
     "has-binary": "0.1.6",
     "socket.io-parser": "2.2.4"
   },
