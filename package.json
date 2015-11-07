@@ -10,7 +10,7 @@
     "debug": "2.2.0",
     "redis": "2.3.0",
     "msgpack-js": "0.3.0",
-    "has-binary-data": "0.1.5",
+    "has-binary": "0.1.6",
     "socket.io-parser": "2.2.4"
   },
   "devDependencies": {
