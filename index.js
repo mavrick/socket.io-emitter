@@ -6,7 +6,8 @@
 var client = require('redis').createClient;
 var parser = require('socket.io-parser');
 var hasBin = require('has-binary');
-var msgpack = require('msgpack5').encode;
+var msgpack = require('msgpack5')();
+var encode = msgpack.encode;
 var debug = require('debug')('socket.io-emitter');
 
 /**
@@ -130,7 +131,7 @@ Emitter.prototype.emit = function(){
     packet.nsp = '/';
   }
 
-  var pack = msgpack([packet, {
+  var pack = encode([packet, {
     rooms: this._rooms,
     flags: this._flags
   }]);
